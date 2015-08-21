@@ -5,8 +5,8 @@ var path = require('path');
 
 var configPath = __dirname + '/../data/harness-config.json';
 var paellaDest =  __dirname + '/../paella/';
-var paellaSrcBase = jsonfile.readFileSync(configPath).paellaLocation;
-paellaSrcBase += '/build/player/';
+var paellaSrcBase = jsonfile.readFileSync(configPath).paellaLocation +
+  '/build/player/';
 
 var paellaPaths = [
   'javascript/swfobject.js',
