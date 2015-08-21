@@ -1,0 +1,33 @@
+{
+  "name": "rtmp-harness-paella",
+  "version": "1.0.0",
+  "description": "Does some cool things.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/rtmp-harness-paella.git"
+  },
+  "keywords": [],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/rtmp-harness-paella/issues"
+  },
+  "homepage": "https://github.com/jimkang/rtmp-harness-paella",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "dependencies": {
+    "browserify": "^8.1.3",
+    "d3": "^3.5.5",
+    "idmaker": "^0.1.1",
+    "jsonfile": "^2.2.1",
+    "lodash": "^3.10.1",
+    "prompt": "^0.2.14",
+    "smash": "0.0.14",
+    "uglify-js": "^2.4.17"
+  }
+}
