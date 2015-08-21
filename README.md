@@ -1,7 +1,7 @@
 rtmp-harness-paella
 ===================
 
-Lets you run an rtmp stream in any version of Paella.
+Lets you run an rtmp stream in any version of Paella. A straightforward way to check on RTMP playing.
 
 Installation
 ------------
@@ -16,12 +16,21 @@ Usage
 
 Respond to the prompts for RTMP streams and Paella location.
 
-Then, wzrd will say something like:
+Then, you will see a message like this:
 
-    wzrd index.js
     server started at http://localhost:9966
 
-You can open your browser to that.
+You can open your browser to that and inspect Paella playing the RTMP stream.
+
+How it works
+------------
+
+`make run`:
+
+- Asks you where Paella is and what RTMP stream to play.
+- Copies over built Paella files from your Paella project.
+- Updates configuration files to play the RTMP file.
+- Runs a local web server hosting a web page with your Paella in it.
 
 Tests
 -----
