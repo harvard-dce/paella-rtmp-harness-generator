@@ -1,7 +1,7 @@
 rtmp-harness-paella
 ===================
 
-Lets you run an rtmp stream in any version of Paella. A straightforward way to check on RTMP playing.
+Lets you run an rtmp stream in any version of Paella. A straightforward way to check on RTMP playback.
 
 Installation
 ------------

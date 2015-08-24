@@ -29,6 +29,7 @@
     "lodash": "^3.10.1",
     "prompt": "^0.2.14",
     "queue-async": "^1.0.7",
+    "rimraf": "^2.4.2",
     "smash": "0.0.14",
     "uglify-js": "^2.4.17"
   }

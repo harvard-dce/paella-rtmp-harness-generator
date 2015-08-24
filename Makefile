@@ -1,5 +1,5 @@
-run: update-config copy-paella-build
-	wzrd index.js
+run: copy-paella-build
+	cd web-staging && python -m SimpleHTTPServer
 
 update-config:
 	node tools/update-harness-config.js

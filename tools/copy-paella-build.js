@@ -2,32 +2,24 @@ var jsonfile = require('jsonfile');
 var fs = require('fs-extra');
 var queue = require('queue-async');
 var path = require('path');
+var rimraf = require('rimraf');
+
 
 var configPath = __dirname + '/../data/harness-config.json';
-var paellaDest =  __dirname + '/../paella/';
+var webStagingDest =  __dirname + '/../web-staging/';
 var paellaSrcBase = jsonfile.readFileSync(configPath).paellaLocation +
   '/build/player/';
 
-var paellaPaths = [
-  'javascript/swfobject.js',
-  'javascript/base.js',
-  'javascript/jquery.js',
-  'javascript/lunr.min.js',
-  'javascript/require.js',
-  'javascript/paella_player.js',
-  'resources/bootstrap/js/bootstrap.min.js',
-  'resources/bootstrap/css/bootstrap.slate.min.css',
-  'resources/style/style_dark.css'
-];
-
-var q = queue();
-paellaPaths.forEach(queueCopy);
-q.awaitAll(reportDone);
-
-function queueCopy(subpath) {
+function queueIndexCopy(q) {
   q.defer(
-    fs.copy, paellaSrcBase + subpath,
-    paellaDest + path.basename(subpath)
+    fs.copy,
+    __dirname + '/../index.html',
+    webStagingDest + '/index.html'
+  );
+  q.defer(
+    fs.copy,
+    __dirname + '/../index.js',
+    webStagingDest + '/index.js'
   );
 }
 
@@ -36,6 +28,16 @@ function reportDone(error) {
     console.log(error);
   }
   else {
-    console.log('Paella files copied to ' + paellaDest + '.');
+    console.log('Paella files copied to ' + webStagingDest + '.');
   }
 }
+
+((function go() {
+  rimraf.sync(__dirname + '/../web-staging/*');
+
+  var q = queue();
+  queueIndexCopy(q);
+  q.defer(fs.copy, paellaSrcBase, webStagingDest);
+  q.awaitAll(reportDone);
+}
+)());
