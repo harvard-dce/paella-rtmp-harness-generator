@@ -1,2 +1,33 @@
 
-paella.load('playerContainer', {});
+paella.load(
+  'playerContainer',
+  {
+    data: {
+      "metadata": {
+        "duration": 0,
+        "title": "UPV-TV"
+      },
+      "streams": [
+        {
+          "sources": {
+            "rtmp": [
+              {
+                "src": {
+                  "server": "rtmp://184.72.239.149/vod/",
+                  "stream": "BigBuckBunny_115k.mov"
+                },
+                "mimetype": "video/x-flv",
+                "res": {
+                  "w": "1280",
+                  "h": "720"
+                },
+                "isLiveStream": true
+              }
+            ]
+          },
+          "preview": null
+        }
+      ]
+    }
+  }
+);
