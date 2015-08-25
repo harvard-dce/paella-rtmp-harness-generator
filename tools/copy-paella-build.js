@@ -35,9 +35,9 @@ function reportDone(error) {
 ((function go() {
   rimraf.sync(__dirname + '/../web-staging/*');
 
-  var q = queue();
-  queueIndexCopy(q);
+  var q = queue(1);
   q.defer(fs.copy, paellaSrcBase, webStagingDest);
+  queueIndexCopy(q);
   q.awaitAll(reportDone);
 }
 )());
