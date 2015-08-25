@@ -1,33 +1,23 @@
+var xhr = new XMLHttpRequest();
+xhr.open('GET', document.location + '/data.json');
+xhr.onload = useData;
+xhr.send();
 
-paella.load(
-  'playerContainer',
-  {
-    data: {
-      "metadata": {
-        "duration": 0,
-        "title": "UPV-TV"
-      },
-      "streams": [
-        {
-          "sources": {
-            "rtmp": [
-              {
-                "src": {
-                  "server": "rtmp://184.72.239.149/vod/",
-                  "stream": "BigBuckBunny_115k.mov"
-                },
-                "mimetype": "video/x-flv",
-                "res": {
-                  "w": "1280",
-                  "h": "720"
-                },
-                "isLiveStream": true
-              }
-            ]
-          },
-          "preview": null
-        }
-      ]
-    }
+function useData() {
+  if (this.status === 200) {
+    var data = JSON.parse(this.responseText);
+    loadPaellaWithData(data);
   }
-);
+  else {
+    throw new Error('Error while making request. XHR status: ' + this.status);
+  }
+}
+
+function loadPaellaWithData(data) {
+  paella.load(
+    'playerContainer',
+    {
+      data: data
+    }
+  );
+}

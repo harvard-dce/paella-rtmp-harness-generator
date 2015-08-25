@@ -1,4 +1,5 @@
 run: copy-paella-build
+	cp data/data-template.json web-staging/data.json
 	cd web-staging && python -m SimpleHTTPServer
 
 update-config:
