@@ -10,17 +10,22 @@ var webStagingDest =  __dirname + '/../web-staging/';
 var paellaSrcBase = jsonfile.readFileSync(configPath).paellaLocation +
   '/build/player/';
 
-function queueIndexCopy(q) {
-  q.defer(
-    fs.copy,
-    __dirname + '/../index.html',
-    webStagingDest + '/index.html'
-  );
-  q.defer(
-    fs.copy,
-    __dirname + '/../index.js',
-    webStagingDest + '/index.js'
-  );
+var harnessFilenames = [
+  'index.html',
+  'index.js',
+  'legacy-loader.js'
+];
+
+function queueHarnessCopy(q) {
+  harnessFilenames.forEach(queueCopy);
+
+  function queueCopy(filename) {
+    q.defer(
+      fs.copy,
+      __dirname + '/../harness/' + filename,
+      webStagingDest + filename
+    );
+  }
 }
 
 function reportDone(error) {  
@@ -37,7 +42,7 @@ function reportDone(error) {
 
   var q = queue(1);
   q.defer(fs.copy, paellaSrcBase, webStagingDest);
-  queueIndexCopy(q);
+  queueHarnessCopy(q);
   q.awaitAll(reportDone);
 }
 )());
