@@ -1,7 +1,6 @@
 var jsonfile = require('jsonfile');
 var fs = require('fs-extra');
 var queue = require('queue-async');
-var path = require('path');
 var rimraf = require('rimraf');
 
 
