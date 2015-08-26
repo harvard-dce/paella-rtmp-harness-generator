@@ -1,5 +1,5 @@
 {
-  "name": "rtmp-harness-paella",
+  "name": "paella-rtmp-harness-generator",
   "version": "1.0.0",
   "description": "Does some cool things.",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jimkang/rtmp-harness-paella.git"
+    "url": "git@github.com:jimkang/paella-rtmp-harness-generator.git"
   },
   "keywords": [],
   "author": "Jim Kang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jimkang/rtmp-harness-paella/issues"
+    "url": "https://github.com/jimkang/paella-rtmp-harness-generator/issues"
   },
-  "homepage": "https://github.com/jimkang/rtmp-harness-paella",
+  "homepage": "https://github.com/jimkang/paella-rtmp-harness-generator",
   "devDependencies": {
     "tape": "^3.0.3"
   },
